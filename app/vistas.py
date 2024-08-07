@@ -11,7 +11,7 @@ class VistaTituloPagina:
 
 class VistaCatalogo:
     def __init__(self, productos, x:int, y:int, w:int, num_filas:int):
-        self.peliculas = productos
+        self.productos = productos
         self.x = x
         self.y = y
         self.w = w
@@ -25,5 +25,16 @@ class VistaCatalogo:
         locate(self.x + 60, self.y, "|Total")
 
         locate(self.x, self.y + 1, "---------------+--------------+--------------------------------------------------")
+
+        for contador, product in enumerate(self.productos):
+            locate(self.x, self.y + 2 + contador, product.codigo)
+            locate(self.x + 15, self.y + 2 + contador, f"|{product.producto}")
+            locate(self.x + 30, self.y + 2 + contador, f"|{product.precio}")
+            locate(self.x + 45, self.y + 2 + contador, f"|{product.unidades}")
+            locate(self.x + 60, self.y + 2 + contador, f"|{product.total}")
+
+        locate(self.x, self.y + 3 + contador)
+        Input("Pulsa Enter para continuar")
+
 
         
